@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+:root {
+  --dark-blue: hsl(209, 23%, 22%);
+  --dark-blue-background: hsl(207, 26%, 17%);
+  --dark-blue-text: hsl(200, 15%, 8%);
+  --dark-gray: hsl(0, 0%, 52%);
+  --light-gray-background: hsl(0, 0%, 98%);
+  --light-gray-text: hsl(0, 0%, 100%);
+  --other: #f1f1f1;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 3px solid hsla(0, 0%, 89%, 0.51);
+  background-color: white;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.wrapper {
+  background-color: var(--other);
+  padding: 20px;
+}
+
+.search,
+.filter {
+  background-color: white;
+  padding: 14px;
+  font-size: 13px;
+  border-radius: 4px;
+  border: none;
+}
+
+.search {
+  width: -webkit-fill-available;
+}
+
+.filter {
+  display: inline-block;
+  margin-top: 7px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  min-width: 180px;
+}
+
+.bagde {
+  border-radius: 5px;
+  margin: 30px;
+  background-color: white;
+  overflow: hidden;
+}
+
+.badge-flag {
+  display: block;
+  width: -webkit-fill-available;
+}
+
+.badge-info {
+  padding: 24px;
+}
+
+.badge-info-title {
+  margin-bottom: 14px;
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+}
+
+.strong {
+  font-weight: 600;
+}
