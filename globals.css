@@ -42,13 +42,11 @@ header {
 }
 
 .search {
-  /* width: -webkit-fill-available; */
-  min-width: 480px;
+  min-width: 420px;
 }
 
 .filter {
   display: inline-block;
-  /* margin-top: 7px; */
 }
 
 h2 {
@@ -77,7 +75,7 @@ select {
   min-width: 180px;
 }
 
-.bagde {
+.badge {
   border-radius: 5px;
   margin: 30px;
   background-color: white;
@@ -112,6 +110,12 @@ select {
   min-width: 0;
 }
 
+select > option {
+  background-color: red;
+  color: blue;
+  padding: 10px;
+}
+
 @media (max-width: 1056px) {
   .wrapper {
     grid-template-columns: 1fr 1fr 1fr;
@@ -121,6 +125,9 @@ select {
 @media (max-width: 720px) {
   .wrapper {
     grid-template-columns: 1fr 1fr;
+  }
+  .search {
+    min-width: 200px;
   }
 }
 
