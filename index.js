@@ -1,6 +1,6 @@
 // const apiHost = "https://restcountries.eu/rest/v2/all";
-const apiHost =
-  "https://3e875a26-dfb8-4fb7-9020-955dfc5b94b5.mock.pstmn.io/rest/v2/all";
+import Router from "./router.js";
+const apiHost = "./api-data.json";
 
 const config = {
   method: "GET",
@@ -23,11 +23,11 @@ async function callApi() {
   return countries;
 }
 
-async function setBadges() {
+async function setBadges(total) {
   let wElement = document.getElementsByClassName("wrapper")[0];
   const countries = await callApi();
 
-  for (let i = 0; i < 21; i++) {
+  for (let i = 0; i < total; i++) {
     const country = countries[i];
     const cElement = createBadge(country);
     wElement.appendChild(cElement);
@@ -35,61 +35,44 @@ async function setBadges() {
 }
 
 function createBadge(country) {
-  var container = document.createElement("section");
+  let container = document.createElement("section");
   container.classList.add("country");
 
-  var badge = document.createElement("div");
+  let badge = document.createElement("div");
   badge.classList.add("badge");
 
-  var flag = document.createElement("img");
+  let flag = document.createElement("img");
   flag.src = country.flag;
   flag.classList.add("badge-flag");
 
-  var badgeInfo = document.createElement("div");
+  let badgeInfo = document.createElement("div");
   badgeInfo.classList.add("badge-info");
 
-  var badgeInfoTitle = document.createElement("span");
+  let badgeInfoTitle = document.createElement("div");
+  badgeInfoTitle.innerText = country.name;
   badgeInfoTitle.classList.add("badge-info-title");
 
-  var badgePopulation = document.createElement("div");
+  let badgePopulation = document.createElement("div");
+  let badgePopulationContent = `<div>
+      <span class="strong">Population: </span>
+      <span>${country.population.toLocaleString("en-IN")}</span>
+    </div>`;
+  badgePopulation.innerHTML = badgePopulationContent;
 
-  let populationTitle = document.createElement("span");
-  populationTitle.classList.add("strong");
-  populationTitle.innerText = "Population: ";
+  let badgeRegion = document.createElement("div");
+  let badgeRegionContent = `<div>
+      <span class="strong">Region: </span>
+      <span>${country.region}</span>
+    </div>`;
+  badgeRegion.innerHTML = badgeRegionContent;
 
-  let populationNumber = document.createElement("span");
-  populationNumber.innerText = country.population.toLocaleString("en-IN");
+  let badgeCapital = document.createElement("div");
+  let badgeCapitalContent = `<div>
+      <span class="strong">Capital: </span>
+      <span>${country.capital}</span>
+    </div>`;
+  badgeCapital.innerHTML = badgeCapitalContent;
 
-  badgePopulation.appendChild(populationTitle);
-  badgePopulation.appendChild(populationNumber);
-
-  var badgeRegion = document.createElement("div");
-
-  let regionTitle = document.createElement("span");
-  regionTitle.classList.add("strong");
-  regionTitle.innerText = "Region: ";
-
-  let regionText = document.createElement("span");
-  regionText.innerText = country.region;
-
-  badgeRegion.appendChild(regionTitle);
-  badgeRegion.appendChild(regionText);
-
-  var badgeCapital = document.createElement("div");
-
-  let capitalTitle = document.createElement("span");
-  capitalTitle.classList.add("strong");
-  capitalTitle.innerText = "Capital: ";
-
-  let capitalText = document.createElement("span");
-  capitalText.innerText = country.capital;
-
-  badgeCapital.appendChild(capitalTitle);
-  badgeCapital.appendChild(capitalText);
-
-  var countryName = document.createTextNode(country.name);
-
-  badgeInfoTitle.appendChild(countryName);
   badgeInfo.appendChild(badgeInfoTitle);
   badgeInfo.appendChild(badgePopulation);
   badgeInfo.appendChild(badgeRegion);
@@ -103,4 +86,15 @@ function createBadge(country) {
   return container;
 }
 
-setBadges();
+const router = new Router();
+router.get("/", function (req) {
+  setBadges(20);
+});
+
+router.get("/colombia", function (req) {
+  console.log("esta es la pagina de colombia");
+  setBadges(3);
+});
+
+router.init();
+window.router = router;
