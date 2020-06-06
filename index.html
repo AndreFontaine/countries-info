@@ -9,64 +9,13 @@
     />
     <link rel="stylesheet" href="./globals.css" />
     <title>Countries API</title>
+    <script type="module" src="./home.js"></script>
+    <script src="./country.js"></script>
   </head>
   <body>
-    <header>
-      <h2>Where in the world?</h2>
-      <h3>Dark Mode</h3>
-    </header>
-    <div class="actions">
-      <section>
-        <input
-          class="search"
-          type="search"
-          name=""
-          id=""
-          placeholder="Search for a country ..."
-        />
-      </section>
-      <section>
-        <select class="filter" name="" id="">
-          <option value="none" selected disabled hidden>
-            Filter by Region
-          </option>
-          <option value="Africa">Africa</option>
-          <option value="America">America</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
-        </select>
-      </section>
-    </div>
-    <div class="wrapper">
-      <!-- <section class="country">
-        <div class="badge">
-          <img
-            src="https://restcountries.eu/data/col.svg"
-            alt="flag"
-            class="badge-flag"
-          />
-          <div class="badge-info">
-            <span class="badge-info-title">
-              Colombia
-            </span>
-            <div>
-              <span class="strong">Population:</span>
-              <span>45.770.900</span>
-            </div>
-            <div>
-              <span class="strong">Region:</span>
-              <span>Americas</span>
-            </div>
-            <div>
-              <span class="strong">Capital:</span>
-              <span>Bogotá</span>
-            </div>
-          </div>
-        </div>
-      </section> -->
-    </div>
-    <script type="module" src="./router.js"></script>
+    <a href="#" onclick="onNavigate('/country'); return false;">About</a>
+    <div id="root"></div>
     <script type="module" src="./index.js"></script>
+    <script type="module" src="./templateUtils.js"></script>
   </body>
 </html>
