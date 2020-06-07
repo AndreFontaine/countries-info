@@ -1,46 +1,23 @@
 function templateUtils(elements) {
   let templateRes = document.createElement("div");
-  let templateContent = `<header>
-    <h2>Where in the world?</h2>
-    <h3>Dark Mode</h3>
-  </header>
-  <div class="actions">
-    <section>
-        <input
-            class="search"
-            type="search"
-            name=""
-            id=""
-            placeholder="Search for a country ..."
-        />
-    </section>
-    <section>
-    <select class="filter" name="" id="">
-        <option value="none" selected disabled hidden>
-        Filter by Region
-        </option>
-        <option value="Africa">Africa</option>
-        <option value="America">America</option>
-        <option value="Asia">Asia</option>
-        <option value="Europe">Europe</option>
-        <option value="Oceania">Oceania</option>
-    </select>
-    </section>
-  </div>
-  ${setBadges(elements)}`;
-
+  let templateContent = `<div>${setBadges(elements)}</div>`;
   templateRes.innerHTML = templateContent;
   return templateRes;
 }
 
 function setBadges(countries) {
+  let wrapper = document.createElement("div");
   let wElement = document.createElement("div");
-  for (let i = 0; i < countries.length; i++) {
+  // const dataLength = countries.length;
+  const dataLength = 6;
+  wElement.classList.add("wrapper");
+  for (let i = 0; i < dataLength; i++) {
     const country = countries[i];
     const cElement = createBadge(country);
     wElement.appendChild(cElement);
   }
-  return wElement.innerHTML;
+  wrapper.appendChild(wElement);
+  return wrapper.innerHTML;
 }
 
 function createBadge(country) {
@@ -94,5 +71,3 @@ function createBadge(country) {
 
   return container;
 }
-
-export { templateUtils };

@@ -9,13 +9,38 @@
     />
     <link rel="stylesheet" href="./globals.css" />
     <title>Countries API</title>
-    <script type="module" src="./home.js"></script>
-    <script src="./country.js"></script>
   </head>
   <body>
-    <a href="#" onclick="onNavigate('/country'); return false;">About</a>
+    <header>
+      <h2>Where in the world?</h2>
+      <h3>Dark Mode</h3>
+    </header>
+    <div class="actions">
+      <section>
+        <input
+          class="search"
+          type="search"
+          name=""
+          id=""
+          placeholder="Search for a country ..."
+        />
+      </section>
+      <section>
+        <select class="filter" name="" id="">
+          <option value="none" selected disabled hidden>
+            Filter by Region
+          </option>
+          <option value="Africa">Africa</option>
+          <option value="America">America</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Oceania">Oceania</option>
+        </select>
+      </section>
+    </div>
     <div id="root"></div>
-    <script type="module" src="./index.js"></script>
-    <script type="module" src="./templateUtils.js"></script>
+    <div id="detail"></div>
+    <script src="./templateUtils.js"></script>
+    <script src="./index.js"></script>
   </body>
 </html>
